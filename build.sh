@@ -1,3 +1,5 @@
+mkdir -p output/
+
 cd ./src
 
 for filename in *; do

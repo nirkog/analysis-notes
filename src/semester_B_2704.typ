@@ -2,6 +2,8 @@
 
 // TODO: There is some proof here I didn't copy
 
+#show: doc => note(doc, "Real Analysis - Semester B")
+
 == The Riemann Integral Continued
 
 #theorem[Mean Value][
@@ -89,7 +91,58 @@
 ]
 
 #example[
-  
+  We'll evaluate
+  $
+  integral_0^(2 pi) sin^2 x dd(x)
+  $
+  by using the following change of variables: $y = 1/2 pi - x, x = 1/2 pi - y$ such that $sin x = cos y$. So,
+  $
+  integral_0^(2 pi) sin^2 x dd(x) &= integral_(pi/2)^(-(3 pi)/2) cos^2 y dd(y) \
+  &= integral_(-(3 pi)/2)^(pi/2) cos^2 y dd(y) \
+  &= integral_(-(3 pi)/2)^0 cos^2 y dd(y) + integral_0^(pi/2) cos^2 y dd(y)  \
+  &= integral_(pi/2)^(2pi) cos^2 y dd(y) + integral_0^(pi/2) cos^2 y dd(y) \ 
+  &= integral_0^(2pi) cos^2 y dd(y)
+  $
+  Now, notice that
+  $
+  2 integral_0^(2 pi) sin^2 x dd(x) = integral_0^(2 pi) sin^2 x dd(x) + integral_0^(2 pi) cos^2 x dd(x) = integral_0^(2pi) 1 dd(x) = 2 pi.
+  $
+  Thus, $integral_0^(2 pi) sin^2 x dd(x) = pi$.
+]
+
+#underline[Important property:] If $g, f$ are integrable then $f + g$ is also integrable and
+$
+integral_a^b (f(x) + g(x)) dd(x) = integral_a^b f(x) dd(x) + integral_a^b g(x) dd(x).
+$
+also
+$
+integral_a^b lambda f(x) dd(x) = lambda integral_a^b f(x) dd(x).
+$
+
+// TODO: Add reason
+
+#problem[
+  Let $U_n = integral_0^(pi/2) cos^n (x) dd(x)$. Show that if $n$ is odd then $U_n = (n-1)!!/n!!$, and if $n$ is even then $U_n = (n-1)!!/n!! dot pi/2$.
+]
+
+#problem[
+  Show that $lim_(n->infinity) ( (2n)!!/(2n-1)!!) dot 1/n = pi$.
+]
+
+#problem[
+  Show that $integral_0^(pi/2) log sin x dd(x) = -pi/2 log 2$.
+]
+
+== Calculating Areas
+
+The area of the graph between $f(x)$ and $g(x)$ is $integral_a^b (f(x) - g(x)) dd(x)$.
+
+#example[
+  We can use this to calculate the area of the unit  circle. We get that the area is
+  $
+  2 integral_(-1)^1 sqrt(1 - x^2) dd(x) = 2 integral_(-pi/2)^(pi/2) cos^2 t dd(t) = integral_(-pi/2)^((3pi)/2) cos^2 t dd(t) = integral_0^(2pi) = pi.
+  $
+  Where we used the change of variables $x = sin t, dd(x) = cos t dd(t)$.
 ]
 
 // TODO: Continue this
