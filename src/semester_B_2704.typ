@@ -2,8 +2,6 @@
 
 // TODO: There is some proof here I didn't copy
 
-#show: doc => note(doc, "Real Analysis - Semester B")
-
 == The Riemann Integral Continued
 
 #theorem[Mean Value][
@@ -133,7 +131,9 @@ $
   Show that $integral_0^(pi/2) log sin x dd(x) = -pi/2 log 2$.
 ]
 
-== Calculating Areas
+== Calculating Areas and Volumes
+
+=== Area Between Graphs
 
 The area of the graph between $f(x)$ and $g(x)$ is $integral_a^b (f(x) - g(x)) dd(x)$.
 
@@ -145,4 +145,65 @@ The area of the graph between $f(x)$ and $g(x)$ is $integral_a^b (f(x) - g(x)) d
   Where we used the change of variables $x = sin t, dd(x) = cos t dd(t)$.
 ]
 
-// TODO: Continue this
+=== Volume of a Solid of Revolution
+
+Define a 3-dimensional Solid of Revolution as the set ${ (x, y, z) : a <= x <= b, sqrt(y^2 + z^2) <= f(a)}$ for some function $f$. /* TODO: Is this accurate? */ Then, the volume is $integral_a^b pi f(x)^2 dd(x)$.
+
+#example[Volume of a cone][
+  $
+  integral_0^h pi ((x R)/h)^2 dd(x) = (pi R^2)/h^2 integral_0^h x^2 dd(x) = (pi R^2 h^3)/(3 h^2).
+  $
+]
+
+#example[Volume of a sphere][
+  $
+  integral_(-1)^1 (sqrt(1 - x^2)) pi dd(x) = integral_(-1)^1 pi (1 - x^2) dd(x) = 2 pi - (2 pi)/3 = (4 pi)/3.
+  $
+]
+
+== Length of a Curve
+
+#definition[
+  A curve is a function $f: t -> (x(t), y(t))$ where $t in [0, b]$. 
+]
+
+#definition[
+  A curve is *rectifiable* if for every $epsilon > 0$ there exists $delta > 0$ such that for every partition of the curve $a_0 < a_1 < ... < a_n$ such that $"dist"(a_i, a_(i+1)) < delta$, we get
+  $
+  abs(sum_(j=0)^n sqrt((y(a_j) - y(a_(j-1)))^2 + (x(a_j) - x(a_(j-1)))^2) - L) < epsilon
+  $
+  for some $L in RR$. // TODO: This is kind of a mess
+]
+
+#theorem[][
+  If $(x(t), y(t))$ is continuously differentiable the the curve is rectifiable, and its length is $integral_a^b sqrt(x' (t)^2 + y' (t)^2) dd(t)$.
+] <def:theorem1>
+
+#proof[
+  We'll prove the special case $x(t) = t$.
+  $
+  sum sqrt((a_j - a_(j - 1))^2 + (y(a_j) - y(a_(j-1)))^2) = sum (a_j - a_(j-1)) sqrt(1 + ())
+  $
+  // TODO: Continue this
+]
+
+#problem[
+  Prove the general case of @def:theorem1
+]
+
+#example[
+  Length of a circle, $y(t) = sqrt(1 - t^2), y' (t) = -2t dot 1/(2 sqrt(1 - t^2)) = -t/sqrt(1 - t^2)$.
+  $
+  integral_(-1)^1 sqrt(1 + y'(t)) dd(t) = integral_(-1)^1 sqrt(1 + t^2/(1-t^2)) dd(t)  = integral_(-1)^1 sqrt(1/(1 - t^2)) dd(t) = evaluated(arcsin t)_(-1)^1 = pi/2 - (- pi/2) = pi.
+  $
+]
+
+#problem[
+  Calculate the length of a parobla, $y = x^2/2$, $0 <= x <= x_0$.
+]
+
+#problem[
+  Calculate the of an asteroid, $x^(2\/3) + y^(2\/3) = 1$.
+]
+
+// TODO: There was another example using a different parameterization of the circle or something
