@@ -147,7 +147,7 @@ The area of the graph between $f(x)$ and $g(x)$ is $integral_a^b (f(x) - g(x)) d
 
 === Volume of a Solid of Revolution
 
-Define a 3-dimensional Solid of Revolution as the set ${ (x, y, z) : a <= x <= b, sqrt(y^2 + z^2) <= f(a)}$ for some function $f$. /* TODO: Is this accurate? */ Then, the volume is $integral_a^b pi f(x)^2 dd(x)$.
+Define a 3-dimensional Solid of Revolution as the set ${ (x, y, z) : a <= x <= b, sqrt(y^2 + z^2) <= f(x)}$ for some function $f$. /* TODO: Is this accurate? */ Then, the volume is $integral_a^b pi f(x)^2 dd(x)$.
 
 #example[Volume of a cone][
   $
@@ -157,7 +157,7 @@ Define a 3-dimensional Solid of Revolution as the set ${ (x, y, z) : a <= x <= b
 
 #example[Volume of a sphere][
   $
-  integral_(-1)^1 (sqrt(1 - x^2)) pi dd(x) = integral_(-1)^1 pi (1 - x^2) dd(x) = 2 pi - (2 pi)/3 = (4 pi)/3.
+  integral_(-1)^1 (sqrt(1 - x^2)^2) pi dd(x) = integral_(-1)^1 pi (1 - x^2) dd(x) = 2 pi - (2 pi)/3 = (4 pi)/3.
   $
 ]
 

@@ -3,7 +3,7 @@
 == Definition
 
 #definition[Indefinite Integral][
-  Let $f: I -> RR$. We say that $F: I -> RR$ is an antiderivative, or an indedfinite integral of $f$, if $F' = f$.
+  Let $f: I -> RR$. We say that $F: I -> RR$ is an #index[Antiderivative] antiderivative or an indedfinite integral of $f$, if $F' = f$.
 ] <def:integral>
 
 #proposition[
