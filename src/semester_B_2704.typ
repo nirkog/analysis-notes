@@ -5,7 +5,7 @@
 == The Riemann Integral Continued
 
 #theorem[Mean Value][
-  If $F$ is continuous on $[a, b]$, then there exists $zeta in [a,b]$ such that
+  If $f$ is continuous on $[a, b]$, then there exists $zeta in [a,b]$ such that
   $
   integral_a^b f(x) dd(x) = f(zeta) (b - a).
   $

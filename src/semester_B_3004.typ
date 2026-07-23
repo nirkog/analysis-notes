@@ -1,9 +1,8 @@
 #import "@local/math-homework-template:0.1.0": *
 
-#show: doc => note(doc, "Real Analysis - Semester B")
+// #show: doc => note(doc, "Real Analysis - Semester B")
 
-== Improper Integrals
-
+== Improper Integrals 
 Improper integrals are a generalization of the Riemann integrals for the following cases:
 #parts(
   [
@@ -92,4 +91,45 @@ Improper integrals are a generalization of the Riemann integrals for the followi
 
 == Gamma Function
 
-// TODO: Continue this
+#index[Gamma Function]
+#definition[Gamma Function][
+  $
+  Gamma (x) = integral_0^infinity e^(-t) t^(x-1) dd(t), quad x > 0
+  $
+]
+
+#proposition[
+  The integral in the definition of the Gamma function converges.
+]
+
+#proof[
+  We can represent the integral as the sum of two limits:
+  $
+  Gamma(x) = integral_0^infinity e^(-t) t^(x-1) dd(t) &= integral_0^1 + integral_1^infinity \
+  &= lim_(epsilon->+0) integral_epsilon^1 + lim_(R->infinity) integral_1^R.
+  $
+  Now notice that for every $x > 0$
+  $
+  integral_epsilon^1 e^(-t) t^(x-1) dd(t) <= integral_epsilon^1 t^(x-1) dd(t) < C
+  $
+  for some constant C. And for the other limit, notice that for every $x > 0, t in [1, R]$, $e^(-t/2) t^(x-1) < C_x$ for some $C_x$. Then,
+  $
+  integral_1^R e^(-t) t^(x-1) dd(t) = integral_1^R e^(-t/2) e^(-t/2) t^(x-1) dd(t) <= C_x integral_1^R e^(-t/2) dd(t) <= C_x'
+  $
+  for some $C_x'$. Thus, the integral converges.
+]
+
+#proposition[
+  For every $x > 0$
+  $
+  Gamma(x + 1) = x Gamma(x).
+  $
+  And thus $Gamma(x+1) = x!$.
+]
+
+#proof[
+  We can use integration by parts to get that
+  $
+  Gamma(x+1) = integral_0^infinity e^(-t) t^x dd(t) = evaluated(-e^(-t) t^x)_0^infinity + integral_0^infinity e^(-t) x t^(x-1) dd(t) = x Gamma(x)
+  $
+]
